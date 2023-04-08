@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <script>
+      function calculateInterest() {
+        var principle = parseFloat(document.getElementById("principle").value);
+        var rate = parseFloat(document.getElementById("rate").value);
+        var time = parseFloat(document.getElementById("time").value);
+
+        var interest = (principle * rate * time) / 100;
+
+        var urlParams = new URLSearchParams();
+        urlParams.set("interest", interest.toFixed(2));
+
+        window.location.href = "interest_result.html?" + urlParams.toString();
+      }
+
+      function calculateSum() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        var sum = num1 + num2;
+
+        var urlParams = new URLSearchParams();
+        urlParams.set("sum", sum.toFixed(2));
+
+        window.location.href = "sum_result.html?" + urlParams.toString();
+      }
+
+      function calculateGreater() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        var greater = Math.max(num1, num2);
+
+        var urlParams = new URLSearchParams();
+        urlParams.set("greater", greater.toFixed(2));
+
+        window.location.href = "greater_result.html?" + urlParams.toString();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <h2>Simple Interest</h2>
+    <p>
+      Principle: $<input type="number" id="principle" /><br />
+      Rate (%): <input type="number" id="rate" /><br />
+      Time (years): <input type="number" id="time" /><br />
+      <button onclick="calculateInterest()">Calculate</button>
+    </p>
+    <hr />
+    <h2>Sum of Two Numbers</h2>
+    <p>
+      Number 1: <input type="number" id="num1" /><br />
+      Number 2: <input type="number" id="num2" /><br />
+      <button onclick="calculateSum()">Calculate</button>
+    </p>
+    <hr />
+    <h2>Greater Number</h2>
+    <p>
+      Number 1: <input type="number" id="num1" /><br />
+      Number 2: <input type="number" id="num2" /><br />
+      <button onclick="calculateGreater()">Calculate</button>
+    </p>
+  </body>
+</html>
